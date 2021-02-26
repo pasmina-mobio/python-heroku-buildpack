@@ -28,8 +28,8 @@ if [ ! "$DISABLE_COLLECTSTATIC" ] && [ -f "$MANAGE_FILE" ] && [ "$DJANGO_INSTALL
     set +e
     
     cd "app/django_python_boilerplate/static"
-    puts-step "$ npm install"
-    puts-step "$ grunt"
+    npm install
+    grunt
     cd "../../../"
     puts-step "$ python $MANAGE_FILE collectstatic --noinput"
 
