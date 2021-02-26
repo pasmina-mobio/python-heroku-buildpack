@@ -2,18 +2,12 @@
 
 echo "====> Building styles and javascript"
 
-sudo apt-get install nodejs
-
-pwd
-
 cd $t
 
-cd app/django_python_boilerplate/static
+cd ~/app/django_python_boilerplate/static
 
 npm install
 
 grunt
 
-cd ../
-
-python app/django_python_boilerplate/manage.py collectstatic --noinput
+python ~/app/django_python_boilerplate/manage.py collectstatic --noinput
