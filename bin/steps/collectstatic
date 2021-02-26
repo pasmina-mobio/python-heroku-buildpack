@@ -82,7 +82,7 @@ if [ ! "$DISABLE_COLLECTSTATIC" ] && [ -f "$MANAGE_FILE" ] && [ "$DJANGO_INSTALL
     set +e
     
     cd "app/django_python_boilerplate/static"
-    sudo apt install nodejs
+    npm install -g grunt-cli
     npm install
     grunt
     cd "../../../"
