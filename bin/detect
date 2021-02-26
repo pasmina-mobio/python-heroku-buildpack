@@ -2,7 +2,11 @@
 
 echo "====> Building styles and javascript"
 
-cd /app/django_python_boilerplate/static
+pwd
+
+cd $t
+
+cd app/django_python_boilerplate/static
 
 npm install
 
