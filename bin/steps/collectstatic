@@ -71,7 +71,7 @@ if [ ! "$DISABLE_COLLECTSTATIC" ] && [ -f "$MANAGE_FILE" ] && [ "$DJANGO_INSTALL
     npm install
     grunt
     cd "../../../"
-    puts-step "$ python $MANAGE_FILE collectstatic --noinput"
+    puts-step "$ python $MANAGE_FILE collectstatic --no-input"
 
     # Run collectstatic, cleanup some of the noisy output.
     PYTHONPATH=${PYTHONPATH:-.}
@@ -80,7 +80,7 @@ if [ ! "$DISABLE_COLLECTSTATIC" ] && [ -f "$MANAGE_FILE" ] && [ "$DJANGO_INSTALL
     # Create a temporary file for collecting the collectstaic logs.
     COLLECTSTATIC_LOG=$(mktemp)
 
-    python "$MANAGE_FILE" collectstatic --noinput --traceback 2>&1 | tee "$COLLECTSTATIC_LOG" | sed '/^Post-processed/d;/^Copying/d;/^$/d' | indent
+    python "$MANAGE_FILE" collectstatic --no-input --traceback 2>&1 | tee "$COLLECTSTATIC_LOG" | sed '/^Post-processed/d;/^Copying/d;/^$/d' | indent
     COLLECTSTATIC_STATUS="${PIPESTATUS[0]}"
 
     set -e
