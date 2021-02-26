@@ -19,7 +19,6 @@ MANAGE_FILE=${MANAGE_FILE:-fakepath}
 
 INSTALL_NODE_VER=10
 INSTALL_NVM_VER=0.33.11
-INSTALL_YARN_VER=1.7.0
 
 # Legacy file-based support for $DISABLE_COLLECTSTATIC
 [ -f .heroku/collectstatic_disabled ] && DISABLE_COLLECTSTATIC=1
@@ -48,28 +47,14 @@ echo "==> Make this version system default"
 nvm alias default $INSTALL_NODE_VER
 nvm use default
 
-#echo -e "==> Update npm to latest version, if this stuck then terminate (CTRL+C) the execution"
-#npm install -g npm
-
-echo "==> Installing Yarn package manager"
-rm -rf ~/.yarn
-curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $INSTALL_YARN_VER
-
-echo "==> Adding Yarn to environment path"
-# Yarn configurations
-export PATH="$HOME/.yarn/bin:$PATH"
-yarn config set prefix ~/.yarn -g
-
 echo "==> Checking for versions"
 nvm --version
 node --version
 npm --version
-yarn --version
 
 echo "==> Print binary paths"
 which npm
 which node
-which yarn
 
 echo "==> List installed node versions"
 nvm ls
