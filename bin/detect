@@ -1,13 +1,22 @@
 #!/usr/bin/env bash
 
-echo "====> Building styles and javascript"
+# This script serves as the
+# [**Python Buildpack**](https://github.com/heroku/heroku-buildpack-python)
+# detector.
+#
+# A [buildpack](https://devcenter.heroku.com/articles/buildpacks) is an
+# adapter between a Python application and Heroku's runtime.
 
-cd $1
+# ## Usage
+# Compiling an app into a slug is simple:
+#
+#     $ bin/detect <build-dir> <cache-dir>
 
-cd django_python_boilerplate/static
+BUILD_DIR=$1
 
-npm install
+# Exit early if app is clearly not Python.
+if [ ! -f "$BUILD_DIR/requirements.txt" ] && [ ! -f "$BUILD_DIR/setup.py" ] && [ ! -f "$BUILD_DIR/Pipfile" ]; then
+  exit 1
+fi
 
-grunt
-
-python django_python_boilerplate/manage.py collectstatic --noinput
+echo Python
