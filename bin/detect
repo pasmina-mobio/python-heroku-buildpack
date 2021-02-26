@@ -2,6 +2,8 @@
 
 echo "====> Building styles and javascript"
 
+sudo apt-get install nodejs
+
 pwd
 
 cd $t
