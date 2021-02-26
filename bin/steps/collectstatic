@@ -30,7 +30,7 @@ if [ ! "$DISABLE_COLLECTSTATIC" ] && [ -f "$MANAGE_FILE" ] && [ "$DJANGO_INSTALL
     cd "app/django_python_boilerplate/static"
     puts-step "$ npm install"
     puts-step "$ grunt"
-    cd "app/django_python_boilerplate"
+    cd "../../../"
     puts-step "$ python $MANAGE_FILE collectstatic --noinput"
 
     # Run collectstatic, cleanup some of the noisy output.
