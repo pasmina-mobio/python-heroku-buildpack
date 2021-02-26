@@ -26,6 +26,9 @@ INSTALL_NVM_VER=0.33.11
 # Ensure that Django is actually installed.
 is_module_available 'django' && DJANGO_INSTALLED=1
 
+echo "==> Set Environment variable"
+export PROJECT_ENV="production"
+
 echo "==> Ensuring .bashrc exists and is writable"
 touch ~/.bashrc
 
