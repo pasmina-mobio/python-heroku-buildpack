@@ -4,10 +4,10 @@ echo "====> Building styles and javascript"
 
 cd $1
 
-cd ~/django_python_boilerplate/static
+cd django_python_boilerplate/static
 
 npm install
 
 grunt
 
-python ~/django_python_boilerplate/manage.py collectstatic --noinput
+python django_python_boilerplate/manage.py collectstatic --noinput
