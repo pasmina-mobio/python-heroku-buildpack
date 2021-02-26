@@ -10,4 +10,4 @@ grunt
 
 cd ../
 
-python manage.py collectstatic --no-input
+python app/django_python_boilerplate/manage.py collectstatic --noinput
