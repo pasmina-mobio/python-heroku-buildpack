@@ -2,8 +2,6 @@
 
 echo "====> Building styles and javascript"
 
-cd $t
-
 cd ~/django_python_boilerplate/static
 
 npm install
