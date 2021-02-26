@@ -27,10 +27,10 @@ is_module_available 'django' && DJANGO_INSTALLED=1
 if [ ! "$DISABLE_COLLECTSTATIC" ] && [ -f "$MANAGE_FILE" ] && [ "$DJANGO_INSTALLED" ]; then
     set +e
     
-    cd "$MANAGE_FILE/static"
+    cd "app/django_python_boilerplate/static"
     puts-step "$ npm install"
     puts-step "$ grunt"
-    cd "$MANAGE_FILE"
+    cd "app/django_python_boilerplate"
     puts-step "$ python $MANAGE_FILE collectstatic --noinput"
 
     # Run collectstatic, cleanup some of the noisy output.
